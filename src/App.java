@@ -15,19 +15,25 @@ public class App {
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //we need this so the program close properly 
             frame.setResizable(false); // Do not allow resize 
 
-
             ImageIcon image = new ImageIcon("logo.png");
+            ImageIcon imageLabel = new ImageIcon("waterfall..png");
 
             frame.setIconImage(image.getImage());
             frame.getContentPane().setBackground(new Color(0x402f3c)); //change default color background | rgb or hex hex is 0xF000000 format
 
-            JLabel jlabel = new JLabel();
-            jlabel.setText("This is a label");
-            jlabel.setForeground(Color.white);;
-            
+            JLabel jlabel = new JLabel("This is a label", imageLabel, JLabel.CENTER);
+            jlabel.setForeground(Color.white);
+            jlabel.setHorizontalTextPosition(JLabel.CENTER);
+            jlabel.setVerticalTextPosition(JLabel.BOTTOM); // Put text below image
+            jlabel.setHorizontalAlignment(JLabel.CENTER);
+            jlabel.setVerticalAlignment(JLabel.CENTER);
+            System.out.println("Image loaded: " + (imageLabel.getImageLoadStatus() == java.awt.MediaTracker.COMPLETE));
+            System.out.println("Image dimensions: " + imageLabel.getIconWidth() + "x" + imageLabel.getIconHeight());
+            System.out.println("Image dimensions: " + image.getIconWidth() + "x" + image.getIconHeight());
             frame.add(jlabel);
 
             frame.setVisible(true);
+            jlabel.setVisible(true);
         }
     }
 }
