@@ -1,3 +1,4 @@
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -6,6 +7,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
 
+import javax.swing.border.Border;
 public class MyFrame extends JFrame
 {
     private JLabel label;
@@ -29,6 +31,8 @@ public class MyFrame extends JFrame
         ImageIcon image = new ImageIcon("logo.png");
         ImageIcon imageLabel = new ImageIcon("waterfall..png"); // Fixed: removed extra dot
 
+        Border border = BorderFactory.createLineBorder(Color.black,5);
+
         this.setIconImage(image.getImage());
         this.getContentPane().setBackground(new Color(0x402f3c)); //change default color background
 
@@ -39,7 +43,7 @@ public class MyFrame extends JFrame
         label.setVerticalTextPosition(JLabel.BOTTOM); // Put text below image
         label.setFont(customFont); // Set the custom font
         label.setIconTextGap(0);
-        
+        label.setBorder(border);
         // Add label to frame
         this.add(label);
         this.setVisible(true);
