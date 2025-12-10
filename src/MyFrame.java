@@ -2,6 +2,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -12,10 +13,11 @@ public class MyFrame extends JFrame
 {
     private JLabel label;
     
-    MyFrame(){
+    MyFrame()
+    {
         // Frame parameters (size, etc.)
         this.setSize(500,500);
-        this.setTitle("Main");
+        this.setTitle("My Program");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false); // Do not allow resize 
         this.setLayout(null);
@@ -35,7 +37,7 @@ public class MyFrame extends JFrame
         Border border = BorderFactory.createLineBorder(Color.black,5);
 
         this.setIconImage(image.getImage());
-        this.getContentPane().setBackground(new Color(0x402f3c)); //change default color background
+        this.getContentPane().setBackground(new Color(0x402f3c)); // default color 
 
         // Create JLabel with proper constructor
         label = new JLabel("This is a label", imageLabel, JLabel.CENTER);
@@ -46,8 +48,16 @@ public class MyFrame extends JFrame
         label.setIconTextGap(0);
         label.setBorder(border);
         label.setBounds(50,50,400,400);
+
+        //creating Jpanel 
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.blue);
+        panel.setBounds(50,50,500,500);
+
+
         // Add label to frame
         this.add(label);
+        this.add(panel);
         this.setVisible(true);
     }
 }
