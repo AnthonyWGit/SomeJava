@@ -18,6 +18,7 @@ public class MyFrame extends JFrame
         this.setTitle("Main");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false); // Do not allow resize 
+        this.setLayout(null);
         
         //Custom font handler (moved before creating label to set font properly)
         Font customFont = null;
@@ -44,6 +45,7 @@ public class MyFrame extends JFrame
         label.setFont(customFont); // Set the custom font
         label.setIconTextGap(0);
         label.setBorder(border);
+        label.setBounds(50,50,400,400);
         // Add label to frame
         this.add(label);
         this.setVisible(true);
