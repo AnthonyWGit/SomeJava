@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
@@ -19,7 +20,7 @@ public class MyFrame extends JFrame
         this.setSize(500,500);
         this.setTitle("My Program");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false); // Do not allow resize 
+        this.setResizable(true); // Do not allow resize 
         this.setLayout(null);
         
         //Custom font handler (moved before creating label to set font properly)
@@ -32,32 +33,33 @@ public class MyFrame extends JFrame
             System.out.println("Error in loading file");
         }
         ImageIcon image = new ImageIcon("logo.png");
-        ImageIcon imageLabel = new ImageIcon("waterfall..png"); // Fixed: removed extra dot
+        ImageIcon imageLabel = new ImageIcon("waterfall..png"); 
 
         Border border = BorderFactory.createLineBorder(Color.black,5);
 
         this.setIconImage(image.getImage());
         this.getContentPane().setBackground(new Color(0x402f3c)); // default color 
 
+
+        //creating Jpanel first
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.blue);
+        panel.setLayout(new BorderLayout());
+        panel.setBounds(50,50,500,500);
+
         // Create JLabel with proper constructor
         label = new JLabel("This is a label", imageLabel, JLabel.CENTER);
         label.setForeground(Color.white); //color of text 
         label.setHorizontalTextPosition(JLabel.CENTER);
-        label.setVerticalTextPosition(JLabel.BOTTOM); // Put text below image
+        label.setVerticalTextPosition(JLabel.TOP); // Put text below image
         label.setFont(customFont); // Set the custom font
         label.setIconTextGap(0);
         label.setBorder(border);
-        label.setBounds(50,50,400,400);
-
-        //creating Jpanel 
-        JPanel panel = new JPanel();
-        panel.setBackground(Color.blue);
-        panel.setBounds(50,50,500,500);
-
+        // label.setBounds(50,50,400,400);
 
         // Add label to frame
-        this.add(label);
         this.add(panel);
+        panel.add(label,BorderLayout.NORTH);
         this.setVisible(true);
     }
 }
