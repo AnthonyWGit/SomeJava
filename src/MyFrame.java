@@ -16,7 +16,7 @@ public class MyFrame extends JFrame
         // Frame parameters (size, etc.)
         this.setSize(500,500);
         this.setTitle("Main");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Fixed: Changed Jthis to JFrame
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false); // Do not allow resize 
         
         //Custom font handler (moved before creating label to set font properly)
