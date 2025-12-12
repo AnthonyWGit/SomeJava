@@ -8,10 +8,12 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.border.Border;
-public class MyFrame extends JFrame
+public class MyFrame extends JFrame implements ActionListener
 {
     private JLabel label;
     private JButton button;
@@ -67,6 +69,15 @@ public class MyFrame extends JFrame
 
         button = new JButton();
         button.setBounds(250, 450,30,20);
+        button.addActionListener(this);
         panel.add(button, BorderLayout.CENTER);
-    }
+        }
+        
+        public void actionPerformed(ActionEvent e)
+        {
+            if (e.getSource() == button)
+            {
+                System.out.println("text");
+            }
+        }
 }
