@@ -77,7 +77,8 @@ public class MyFrame extends JFrame implements ActionListener
         {
             if (e.getSource() == button)
             {
-                System.out.println("text");
+                // System.out.println("text");
+                new AltFrame();
             }
         }
 }
