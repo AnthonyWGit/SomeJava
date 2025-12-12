@@ -1,5 +1,6 @@
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,14 +14,15 @@ import javax.swing.border.Border;
 public class MyFrame extends JFrame
 {
     private JLabel label;
+    private JButton button;
     
     MyFrame()
     {
         // Frame parameters (size, etc.)
-        this.setSize(500,500);
+        this.setSize(700,700);
         this.setTitle("My Program");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(true); // Do not allow resize 
+        this.setResizable(true); // Allow resize
         this.setLayout(null);
         
         //Custom font handler (moved before creating label to set font properly)
@@ -44,7 +46,7 @@ public class MyFrame extends JFrame
         //creating Jpanel first
         JPanel panel = new JPanel();
         panel.setBackground(Color.blue);
-        panel.setLayout(new BorderLayout());
+        panel.setLayout(null);
         panel.setBounds(50,50,500,500);
 
         // Create JLabel with proper constructor
@@ -52,6 +54,7 @@ public class MyFrame extends JFrame
         label.setForeground(Color.white); //color of text 
         label.setHorizontalTextPosition(JLabel.CENTER);
         label.setVerticalTextPosition(JLabel.TOP); // Put text below image
+        label.setBounds(0,0,500,500); //Using bounds so the button added later static as it is when i resize window app 
         label.setFont(customFont); // Set the custom font
         label.setIconTextGap(0);
         label.setBorder(border);
@@ -61,5 +64,9 @@ public class MyFrame extends JFrame
         this.add(panel);
         panel.add(label,BorderLayout.NORTH);
         this.setVisible(true);
+
+        button = new JButton();
+        button.setBounds(250, 450,30,20);
+        panel.add(button, BorderLayout.CENTER);
     }
 }
