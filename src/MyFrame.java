@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.border.Border;
-public class MyFrame extends JFrame implements ActionListener
+public class MyFrame extends JFrame /*implements ActionListener*/
 {
     private JLabel label;
     private JButton button;
@@ -69,16 +69,18 @@ public class MyFrame extends JFrame implements ActionListener
 
         button = new JButton();
         button.setBounds(250, 450,30,20);
-        button.addActionListener(this);
+        // button.addActionListener(this);
+        button.addActionListener(e -> new AltFrame()); // e is lambda function 
         panel.add(button, BorderLayout.CENTER);
         }
         
-        public void actionPerformed(ActionEvent e)
-        {
-            if (e.getSource() == button)
-            {
-                // System.out.println("text");
-                new AltFrame();
-            }
-        }
+        //with class implents ActionsListener
+        // public void actionPerformed(ActionEvent e)
+        // {
+        //     if (e.getSource() == button)
+        //     {
+        //         // System.out.println("text");
+        //         new AltFrame();
+        //     }
+        // }
 }
