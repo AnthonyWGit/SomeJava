@@ -11,13 +11,13 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
 import javax.swing.border.Border;
+
 public class MyFrame extends JFrame /*implements ActionListener*/
 {
     private JLabel label;
     private JButton button;
-    
+    // This is a constructor
     MyFrame()
     {
         // Frame parameters (size, etc.)
@@ -38,6 +38,7 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         }
         ImageIcon image = new ImageIcon("logo.png");
         ImageIcon imageLabel = new ImageIcon("waterfall..png"); 
+        ImageIcon imageButton = new ImageIcon("logo.png");
 
         Border border = BorderFactory.createLineBorder(Color.black,5);
 
@@ -66,11 +67,20 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         this.add(panel);
         panel.add(label,BorderLayout.NORTH);
         this.setVisible(true);
-
+        //Add button
         button = new JButton();
-        button.setBounds(250, 450,30,20);
+        button.setBounds(175, 450,150,30);
         // button.addActionListener(this);
         button.addActionListener(e -> new AltFrame()); // e is lambda function 
+        button.setText("New Frame");
+        button.setFocusable(false);
+        // button.setIcon(imageButton);
+        button.setHorizontalTextPosition(JButton.CENTER);
+        button.setVerticalTextPosition(JButton.BOTTOM);
+        button.setForeground(Color.red);
+        button.setBackground(Color.black);
+        button.setBorder(BorderFactory.createEtchedBorder());
+        // button.setIconTextGap(-15);
         panel.add(button, BorderLayout.CENTER);
         }
         
