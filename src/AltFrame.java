@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 public class AltFrame extends JFrame {
     
@@ -13,12 +14,17 @@ public class AltFrame extends JFrame {
         this.setTitle("Alt frame");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         this.setResizable(true);
-        this.setLayout(null);
+        this.setLayout(new FlowLayout());         //Default manager is Flowlayout FOR PANEL 
+
+        JPanel parentPanel = new JPanel();
+        parentPanel.setLayout(new BorderLayout());
 
         JPanel panelText = new JPanel();
         JPanel panelButton = new JPanel();
-        //A flow manager so if resize the label still shows
-        this.setLayout(new BorderLayout());
+        panelButton.setLayout(new FlowLayout());
+        panelButton.setPreferredSize(new Dimension(100,100));
+        panelButton.setBackground(Color.LIGHT_GRAY);
+
         // this.getContentPane().setBackground(Color.GREEN); Green hurts the eyes 
         
         JLabel label = new JLabel("This is the alternate frame!");
@@ -35,9 +41,10 @@ public class AltFrame extends JFrame {
 
         panelText.add(label);
         
-        this.add(panelText, BorderLayout.NORTH);
-        this.add(panelButton, BorderLayout.CENTER);
-
+        parentPanel.add(panelText, BorderLayout.NORTH);
+        parentPanel.add(panelButton, BorderLayout.CENTER);
+        //So all the visual goes north 
+        this.add(parentPanel,BorderLayout.NORTH);
         this.setVisible(true);
     }
 }
