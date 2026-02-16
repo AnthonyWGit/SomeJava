@@ -23,6 +23,7 @@ public class MyFrame extends JFrame /*implements ActionListener*/
     private JLabel label;
     private JButton button;
     private JButton button2;
+    private JButton button3;    
     // This is a constructor
     MyFrame()
     {
@@ -75,9 +76,9 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         //Create & add button to pannel 
         button = new JButton();
         button2 = new JButton();
+        button3 = new JButton();
         // button.addActionListener(this);
         button.addActionListener(e -> new AltFrame());//Lambda function
-        button2.addActionListener(e -> new GridFrame());
         button.setText("New Frame");
         button.setFocusable(false);
         button.setForeground(Color.red);
@@ -86,6 +87,7 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         button.setMaximumSize(new Dimension(200, 100));  // Limit to size 
         button.setPreferredSize(new Dimension(20,50));
 
+        button2.addActionListener(e -> new GridFrame());
         button2.setText("Button 2");
         button2.setFocusable(false);
         button2.setForeground(Color.red);
@@ -93,20 +95,31 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         button2.setBorder(BorderFactory.createEtchedBorder());
         button2.setMaximumSize(new Dimension(200, 100));
         button2.setPreferredSize(new Dimension(20,50));
+        button2.addActionListener(e -> new GridFrame());
+
+        button3.setText("Button 3");
+        button3.setFocusable(false);
+        button3.setForeground(Color.red);
+        button3.setBackground(Color.black);
+        button3.setBorder(BorderFactory.createEtchedBorder());
+        button3.setMaximumSize(new Dimension(200, 100));
+        button3.setPreferredSize(new Dimension(20,50));
 
         button.setAlignmentX(CENTER_ALIGNMENT);   // Buttons centering
         button2.setAlignmentX(CENTER_ALIGNMENT);
-
-        buttonPanel.add(Box.createVerticalGlue());  
+        button3.setAlignmentX(CENTER_ALIGNMENT);
+ 
         buttonPanel.add(button);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 15)));  // 15px space between buttons
         buttonPanel.add(button2);
+        buttonPanel.add(button3);
+        buttonPanel.add(Box.createRigidArea(new Dimension(0, 15)));  // 15px space between buttons
         buttonPanel.add(Box.createVerticalGlue()); 
         // button.setIconTextGap(-15);
 
         panel.add(label, BorderLayout.NORTH);
         panel.add(buttonPanel, BorderLayout.CENTER);
         panel.setBorder(border);
+
         this.add(panel);
         this.setVisible(true);
         }
