@@ -6,7 +6,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,15 +19,16 @@ public class MyFrame extends JFrame /*implements ActionListener*/
 {
     private JLabel label;
     private JButton button;
+    private JButton button2;
     // This is a constructor
     MyFrame()
     {
         // Frame parameters (size, etc.)
-        this.setSize(700,700);
+        this.setSize(800,800);
         this.setTitle("My Program");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(true); // Allow resize
-        this.setLayout(null);
+        this.setLayout(null); // allows setBounds on panel
         
         //Custom font handler (moved before creating label to set font properly)
         Font customFont = null;
@@ -49,27 +52,29 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         //creating Jpanel first
         JPanel panel = new JPanel();
         panel.setBackground(Color.blue);
-        panel.setLayout(null);
-        panel.setBounds(50,50,500,500);
+        panel.setLayout(new BorderLayout());
+        panel.setBounds(50,50,500,600);
+
+        //Panel for buttons
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.blue);
+        buttonPanel.setLayout(new GridLayout(2, 1, 0, 5));  // 2 lignes, 1 colonne, 10px d'espace
 
         // Create JLabel with proper constructor
         label = new JLabel("This is a label", imageLabel, JLabel.CENTER);
         label.setForeground(Color.white); //color of text 
         label.setHorizontalTextPosition(JLabel.CENTER);
         label.setVerticalTextPosition(JLabel.TOP); // Put text below image
-        label.setBounds(0,0,500,500); //Using bounds so the button added later static as it is when i resize window app 
+        /*label.setBounds(0,0,500,600); */ 
         label.setFont(customFont); // Set the custom font
         label.setIconTextGap(0);
-        label.setBorder(border);
         // label.setBounds(50,50,400,400);
 
-        // Add label to frame
-        this.add(panel);
-        panel.add(label,BorderLayout.NORTH);
-        this.setVisible(true);
-        //Add button
+        //Create & add button to pannel 
         button = new JButton();
-        button.setBounds(175, 450,150,30);
+        button2 = new JButton();
+        button.setBounds(10, 10,150,30);
+        button2.setBounds(10,50,150,30);
         // button.addActionListener(this);
         button.addActionListener(e -> new AltFrame()); // e is lambda function 
         button.setText("New Frame");
@@ -81,7 +86,14 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         button.setBackground(Color.black);
         button.setBorder(BorderFactory.createEtchedBorder());
         // button.setIconTextGap(-15);
-        panel.add(button, BorderLayout.CENTER);
+        buttonPanel.add(button);
+        buttonPanel.add(button2);
+
+        panel.add(label, BorderLayout.NORTH);
+        panel.add(buttonPanel, BorderLayout.SOUTH);
+        panel.setBorder(border);
+        this.add(panel);
+        this.setVisible(true);
         }
         
         //with class implents ActionsListener
