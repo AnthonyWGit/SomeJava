@@ -14,6 +14,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.border.Border;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import java.awt.Dimension;
 
 public class MyFrame extends JFrame /*implements ActionListener*/
 {
@@ -58,8 +61,7 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         //Panel for buttons
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.blue);
-        buttonPanel.setLayout(new GridLayout(2, 1, 0, 5));  // 2 lignes, 1 colonne, 10px d'espace
-
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS)); 
         // Create JLabel with proper constructor
         label = new JLabel("This is a label", imageLabel, JLabel.CENTER);
         label.setForeground(Color.white); //color of text 
@@ -73,24 +75,36 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         //Create & add button to pannel 
         button = new JButton();
         button2 = new JButton();
-        button.setBounds(10, 10,150,30);
-        button2.setBounds(10,50,150,30);
         // button.addActionListener(this);
-        button.addActionListener(e -> new AltFrame()); // e is lambda function 
+        button.addActionListener(e -> new AltFrame());
         button.setText("New Frame");
         button.setFocusable(false);
-        // button.setIcon(imageButton);
-        button.setHorizontalTextPosition(JButton.CENTER);
-        button.setVerticalTextPosition(JButton.BOTTOM);
         button.setForeground(Color.red);
         button.setBackground(Color.black);
         button.setBorder(BorderFactory.createEtchedBorder());
-        // button.setIconTextGap(-15);
+        button.setMaximumSize(new Dimension(200, 100));  // Limit to size 
+        button.setPreferredSize(new Dimension(20,50));
+
+        button2.setText("Button 2");
+        button2.setFocusable(false);
+        button2.setForeground(Color.red);
+        button2.setBackground(Color.black);
+        button2.setBorder(BorderFactory.createEtchedBorder());
+        button2.setMaximumSize(new Dimension(200, 100));
+        button2.setPreferredSize(new Dimension(20,50));
+
+        button.setAlignmentX(CENTER_ALIGNMENT);   // Buttons centering
+        button2.setAlignmentX(CENTER_ALIGNMENT);
+
+        buttonPanel.add(Box.createVerticalGlue());  
         buttonPanel.add(button);
+        buttonPanel.add(Box.createRigidArea(new Dimension(0, 15)));  // 15px space between buttons
         buttonPanel.add(button2);
+        buttonPanel.add(Box.createVerticalGlue()); 
+        // button.setIconTextGap(-15);
 
         panel.add(label, BorderLayout.NORTH);
-        panel.add(buttonPanel, BorderLayout.SOUTH);
+        panel.add(buttonPanel, BorderLayout.CENTER);
         panel.setBorder(border);
         this.add(panel);
         this.setVisible(true);
