@@ -76,7 +76,8 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         button = new JButton();
         button2 = new JButton();
         // button.addActionListener(this);
-        button.addActionListener(e -> new AltFrame());
+        button.addActionListener(e -> new AltFrame());//Lambda function
+        button2.addActionListener(e -> new GridFrame());
         button.setText("New Frame");
         button.setFocusable(false);
         button.setForeground(Color.red);
