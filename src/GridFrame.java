@@ -15,14 +15,13 @@ public class GridFrame extends JFrame {
         this.setTitle("Alt frame");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         this.setResizable(true);
-        this.setLayout(new GridBagLayout());
+        this.setLayout(new GridBagLayout()); //by default everything 
 
         this.add(new JButton("1"));
         this.add(new JButton("2"));
         this.add(new JButton("3"));
         this.add(new JButton("4"));
         this.add(new JButton("5"));
-        this.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         this.setVisible(true);
     }
