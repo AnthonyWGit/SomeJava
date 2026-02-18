@@ -105,7 +105,7 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         button3.setBorder(BorderFactory.createEtchedBorder());
         button3.setMaximumSize(new Dimension(200, 100));
         button3.setPreferredSize(new Dimension(20,50));
-
+        // For layeredPanel showcase
         button4.setText("Button 4");
         button4.setFocusable(false);
         button4.setForeground(Color.red);
