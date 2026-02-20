@@ -3,6 +3,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import java.awt.BorderLayout;
@@ -97,7 +98,9 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         button2.setBorder(BorderFactory.createEtchedBorder());
         button2.setMaximumSize(new Dimension(200, 100));
         button2.setPreferredSize(new Dimension(20,50));
-
+        
+        // For layeredPanel showcase
+        button3.addActionListener(e -> new JLayeredPane());
         button3.setText("Button 3");
         button3.setFocusable(false);
         button3.setForeground(Color.red);
@@ -105,14 +108,14 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         button3.setBorder(BorderFactory.createEtchedBorder());
         button3.setMaximumSize(new Dimension(200, 100));
         button3.setPreferredSize(new Dimension(20,50));
-        // For layeredPanel showcase
-        button4.setText("Button 4");
-        button4.setFocusable(false);
-        button4.setForeground(Color.red);
-        button4.setBackground(Color.black);
-        button4.setBorder(BorderFactory.createEtchedBorder());
-        button4.setMaximumSize(new Dimension(200, 100));
-        button4.setPreferredSize(new Dimension(20,50));
+
+        // button4.setText("Button 4");
+        // button4.setFocusable(false);
+        // button4.setForeground(Color.red);
+        // button4.setBackground(Color.black);
+        // button4.setBorder(BorderFactory.createEtchedBorder());
+        // button4.setMaximumSize(new Dimension(200, 100));
+        // button4.setPreferredSize(new Dimension(20,50));
 
         button.setAlignmentX(CENTER_ALIGNMENT);   // Buttons centering
         button2.setAlignmentX(CENTER_ALIGNMENT);
