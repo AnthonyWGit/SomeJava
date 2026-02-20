@@ -98,9 +98,9 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         button2.setBorder(BorderFactory.createEtchedBorder());
         button2.setMaximumSize(new Dimension(200, 100));
         button2.setPreferredSize(new Dimension(20,50));
-        
+
         // For layeredPanel showcase
-        button3.addActionListener(e -> new JLayeredPane());
+        button3.addActionListener(e -> new LayeredPanel());
         button3.setText("Button 3");
         button3.setFocusable(false);
         button3.setForeground(Color.red);
@@ -120,12 +120,12 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         button.setAlignmentX(CENTER_ALIGNMENT);   // Buttons centering
         button2.setAlignmentX(CENTER_ALIGNMENT);
         button3.setAlignmentX(CENTER_ALIGNMENT);
-        button4.setAlignmentX(CENTER_ALIGNMENT);
+        // button4.setAlignmentX(CENTER_ALIGNMENT);
  
         buttonPanel.add(button);
         buttonPanel.add(button2);
         buttonPanel.add(button3);
-        buttonPanel.add(button4);
+        // buttonPanel.add(button4);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 15)));  // 15px space between buttons
         buttonPanel.add(Box.createVerticalGlue()); 
         // button.setIconTextGap(-15);
