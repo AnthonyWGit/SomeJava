@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -102,6 +103,16 @@ public class MyFrame extends JFrame /*implements ActionListener*/
         // For layeredPanel showcase
         button3.addActionListener(e -> new LayeredPanel());
         button3.setText("Button 3");
+        button3.setFocusable(false);
+        button3.setForeground(Color.red);
+        button3.setBackground(Color.black);
+        button3.setBorder(BorderFactory.createEtchedBorder());
+        button3.setMaximumSize(new Dimension(200, 100));
+        button3.setPreferredSize(new Dimension(20,50));
+
+        // For optionPane showcase
+        button3.addActionListener(e -> new LayeredPanel());
+        button3.setText("Button 4");
         button3.setFocusable(false);
         button3.setForeground(Color.red);
         button3.setBackground(Color.black);
